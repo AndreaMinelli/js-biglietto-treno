@@ -18,3 +18,14 @@ L'output del prezzo finale va messo fuori in forma umana (con massimo due decima
 5 - Applicare sconto se minorenne o over 65
 6 - Visualizzare prezzo finale con centesimi
 */
+
+//Prezzo fisso a chilometro
+const kmPrice = 0.21;
+
+//Sconti per minorenni e over 65
+const underAgeDiscount = 0.2;
+const overAgeDiscount = 0.4;
+
+//Richiesta numero chilometri
+
+const userKm = parseInt(prompt('Quanti chilometri vuoi percorrere?').trim());
