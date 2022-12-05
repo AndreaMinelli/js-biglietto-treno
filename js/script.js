@@ -33,16 +33,23 @@ let valid = true;
 
 const userKm = parseInt(prompt('Quanti chilometri vuoi percorrere?').trim());
 
-//Verifica inserimento dati validi
+//Verifica inserimento chilometri validi
 
 if (isNaN(userKm) | userKm === 0) {
     valid = false;
-    alert('Prego inserire il numero di chilometri da percorrere')
+    alert('Prego inserire il numero di chilometri da percorrere');
 }
 
 //Richiesta età del passeggero
 
 const userAge = parseInt(prompt('Quanti anni hai?').trim());
+
+//Verifica inserimento età valida
+
+if (isNaN(userAge) | userAge === 0) {
+    valid = false;
+    alert('Prego inserire l\'età corretta');
+}
 
 //Calcolare prezzo al chilometro
 
@@ -51,14 +58,16 @@ const routePrice = kmPrice * userKm;
 
 //Definire se si applica sconto e applicarlo se minorenne o over 65
 
-let finalPrice = routePrice.toFixed(2);
+if (valid === true) {
+    let finalPrice = routePrice.toFixed(2);
 
-if (userAge < 18) {
-    const totalDiscount = routePrice * underAgeDiscount;
-    finalPrice = (routePrice - totalDiscount).toFixed(2);
-} else if (userAge >= 65) {
-    const totalDiscount = routePrice * overAgeDiscount;
-    finalPrice = (routePrice - totalDiscount).toFixed(2);
-}
+    if (userAge < 18) {
+        const totalDiscount = routePrice * underAgeDiscount;
+        finalPrice = (routePrice - totalDiscount).toFixed(2);
+    } else if (userAge >= 65) {
+        const totalDiscount = routePrice * overAgeDiscount;
+        finalPrice = (routePrice - totalDiscount).toFixed(2);
+    }
 
-console.log(finalPrice);
+    console.log(finalPrice);
+} 
