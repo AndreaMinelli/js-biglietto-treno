@@ -70,4 +70,9 @@ if (valid === true) {
     }
 
     console.log(finalPrice);
-} 
+}
+
+//BONUS
+
+const userName = prompt('Come ti chiami?');
+document.getElementById('user-name').innerText = userName;
