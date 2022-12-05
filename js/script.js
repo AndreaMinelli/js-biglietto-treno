@@ -58,8 +58,10 @@ const routePrice = kmPrice * userKm;
 
 //Definire se si applica sconto e applicarlo se minorenne o over 65
 
+let finalPrice
+
 if (valid === true) {
-    let finalPrice = routePrice.toFixed(2);
+    finalPrice = routePrice.toFixed(2);
 
     if (userAge < 18) {
         const totalDiscount = routePrice * underAgeDiscount;
@@ -75,8 +77,8 @@ if (valid === true) {
 //BONUS
 
 //Richiesta nome utente e stampa in pagina
-const userName = prompt('Come ti chiami?');
-document.getElementById('user-name').innerText = userName;
+const userName = prompt('Come ti chiami?', 'andrea');
+document.getElementById('user-name').innerText = `Ciao ${userName}`;
 
 //Stampa km da percorrere
 document.getElementById('user-km').innerText = `La tratta che vuoi percorrere è di: ${userKm} km. `
@@ -85,5 +87,12 @@ document.getElementById('user-km').innerText = `La tratta che vuoi percorrere è
 //Stampa prezzo al km
 document.getElementById('km-price').innerText = `Il prezzo per la tratta è di ${kmPrice}€ al km.`
 
-//Stampa prezzo biglietto
-document.getElementById('route-price').innerText = `Il prezzo del biglietto è di ${routePrice}€`
+
+//Stampa scritta sconto se usufruito e prezzo finale
+
+if (userAge < 18 | userAge >= 65) {
+    document.getElementById('discount').innerText = `Complimenti! Per te che hai ${userAge} anni, abbiamo dedicato un fantastico sconto!`
+    document.getElementById('final-price').innerText = `Totale da pagare: ${finalPrice}€`
+} else {
+    document.getElementById('final-price').innerText = `Totale da pagare: ${finalPrice}€`
+}
