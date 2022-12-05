@@ -74,5 +74,14 @@ if (valid === true) {
 
 //BONUS
 
+//Richiesta nome utente e stampa in pagina
 const userName = prompt('Come ti chiami?');
 document.getElementById('user-name').innerText = userName;
+
+//Stampa km da percorrere
+document.getElementById('user-km').innerText = `La tratta che vuoi percorrere è di: ${userKm} km. `
+
+
+//Stampa prezzo al km
+document.getElementById('km-price').innerText = `Il prezzo per la tratta è di ${kmPrice}€ al km.`
+
