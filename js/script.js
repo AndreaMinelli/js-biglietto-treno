@@ -53,7 +53,7 @@ if (isNaN(userAge) | userAge === 0) {
 
 //Calcolare prezzo al chilometro
 
-const routePrice = kmPrice * userKm;
+const routePrice = (kmPrice * userKm).toFixed(2);
 
 
 //Definire se si applica sconto e applicarlo se minorenne o over 65
@@ -61,7 +61,7 @@ const routePrice = kmPrice * userKm;
 let finalPrice
 
 if (valid === true) {
-    finalPrice = routePrice.toFixed(2);
+    finalPrice = routePrice;
 
     if (userAge < 18) {
         const totalDiscount = routePrice * underAgeDiscount;
@@ -70,8 +70,6 @@ if (valid === true) {
         const totalDiscount = routePrice * overAgeDiscount;
         finalPrice = (routePrice - totalDiscount).toFixed(2);
     }
-
-    console.log(finalPrice);
 }
 
 //BONUS
@@ -80,19 +78,20 @@ if (valid === true) {
 const userName = prompt('Come ti chiami?', 'andrea');
 document.getElementById('user-name').innerText = `Ciao ${userName}`;
 
-//Stampa km da percorrere
-document.getElementById('user-km').innerText = `La tratta che vuoi percorrere è di: ${userKm} km. `
+if (valid === true) {
+    //Stampa km da percorrere
+    document.getElementById('user-km').innerText = `La tratta che vuoi percorrere è di: ${userKm} km. `
+    //Stampa prezzo al km
+    document.getElementById('km-price').innerText = `Il prezzo per la tratta è di ${kmPrice}€ al km.`
+    //Stampa scritta sconto se usufruito e prezzo finale
 
-
-//Stampa prezzo al km
-document.getElementById('km-price').innerText = `Il prezzo per la tratta è di ${kmPrice}€ al km.`
-
-
-//Stampa scritta sconto se usufruito e prezzo finale
-
-if (userAge < 18 | userAge >= 65) {
-    document.getElementById('discount').innerText = `Complimenti! Per te che hai ${userAge} anni, abbiamo dedicato un fantastico sconto!`
-    document.getElementById('final-price').innerText = `Totale da pagare: ${finalPrice}€`
+    if (userAge < 18 | userAge >= 65) {
+        document.getElementById('discount').innerText = `Complimenti! Per te che hai ${userAge} anni, abbiamo dedicato un fantastico sconto!`
+        document.getElementById('route-price').innerText = `Prezzo prima dello sconto ${routePrice}€`
+        document.getElementById('final-price').innerText = `Totale da pagare: ${finalPrice}€`
+    } else {
+        document.getElementById('final-price').innerText = `Totale da pagare: ${finalPrice}€`
+    }
 } else {
-    document.getElementById('final-price').innerText = `Totale da pagare: ${finalPrice}€`
+    alert('Non hai inserito dati validi! Prego riaggiornare la pagina.')
 }
