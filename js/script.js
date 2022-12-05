@@ -26,9 +26,19 @@ const kmPrice = 0.21;
 const underAgeDiscount = 0.2;
 const overAgeDiscount = 0.4;
 
+//Variabile di controllo
+let valid = true;
+
 //Richiesta numero chilometri
 
 const userKm = parseInt(prompt('Quanti chilometri vuoi percorrere?').trim());
+
+//Verifica inserimento dati validi
+
+if (isNaN(userKm) | userKm === 0) {
+    valid = false;
+    alert('Prego inserire il numero di chilometri da percorrere')
+}
 
 //Richiesta età del passeggero
 
