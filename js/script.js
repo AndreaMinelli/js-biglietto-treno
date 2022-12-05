@@ -85,3 +85,5 @@ document.getElementById('user-km').innerText = `La tratta che vuoi percorrere è
 //Stampa prezzo al km
 document.getElementById('km-price').innerText = `Il prezzo per la tratta è di ${kmPrice}€ al km.`
 
+//Stampa prezzo biglietto
+document.getElementById('route-price').innerText = `Il prezzo del biglietto è di ${routePrice}€`
