@@ -38,4 +38,17 @@ const userAge = parseInt(prompt('Quanti anni hai?').trim());
 
 const routePrice = kmPrice * userKm;
 
-console.log(routePrice);
+
+//Definire se si applica sconto e applicarlo se minorenne o over 65
+
+let finalPrice = routePrice.toFixed(2);
+
+if (userAge < 18) {
+    const totalDiscount = routePrice * underAgeDiscount;
+    finalPrice = (routePrice - totalDiscount).toFixed(2);
+} else if (userAge >= 65) {
+    const totalDiscount = routePrice * overAgeDiscount;
+    finalPrice = (routePrice - totalDiscount).toFixed(2);
+}
+
+console.log(finalPrice);
