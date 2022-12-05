@@ -29,3 +29,8 @@ const overAgeDiscount = 0.4;
 //Richiesta numero chilometri
 
 const userKm = parseInt(prompt('Quanti chilometri vuoi percorrere?').trim());
+
+//Richiesta età del passeggero
+
+const userAge = parseInt(prompt('Quanti anni hai?').trim());
+console.log(userKm, userAge);
