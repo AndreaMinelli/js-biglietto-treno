@@ -33,4 +33,9 @@ const userKm = parseInt(prompt('Quanti chilometri vuoi percorrere?').trim());
 //Richiesta età del passeggero
 
 const userAge = parseInt(prompt('Quanti anni hai?').trim());
-console.log(userKm, userAge);
+
+//Calcolare prezzo al chilometro
+
+const routePrice = kmPrice * userKm;
+
+console.log(routePrice);
